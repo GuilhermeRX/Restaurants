@@ -9,8 +9,9 @@ export default function Header() {
 
   const getSearch = async () => {
     const response = await searchRestaurant(search)
-    setGoSearch(true);
+    setGoSearch(search);
     setRestaurants(response)
+    setSearch('')
   }
 
   return (
