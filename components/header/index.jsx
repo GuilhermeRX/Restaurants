@@ -5,13 +5,14 @@ import { searchRestaurant } from "../../services/searchRestaurant";
 
 export default function Header() {
   const [search, setSearch] = useState('');
-  const { setRestaurants, setGoSearch } = useContext(AppContext);
+  const { setRestaurants, setGoSearch, setPage } = useContext(AppContext);
 
   const getSearch = async () => {
-    const response = await searchRestaurant(search)
+    const response = await searchRestaurant(search, 1)
     setGoSearch(search);
     setRestaurants(response)
     setSearch('')
+    setPage(1)
   }
 
   return (

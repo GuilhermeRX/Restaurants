@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { useRouter } from "next/router";
 import { getRestaurant } from "../../services/getRestaurant";
 
 export default function PageRestaurant({ restaurant }) {
@@ -12,9 +13,11 @@ export default function PageRestaurant({ restaurant }) {
     website,
     opening_hours
   } = restaurant
+  const router = useRouter();
 
   return (
     <div>
+      <button onClick={() => router.push('/')}>Voltar</button>
       <img src={logo} alt={name} />
       <h1>{name}</h1>
       <p>{telephone}</p>
