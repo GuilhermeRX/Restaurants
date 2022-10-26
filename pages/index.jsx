@@ -1,11 +1,24 @@
-import Header from '../components/header'
-import ListContainer from '../components/listContainer'
+import Header from '../components/header';
+import ListContainer from '../components/listContainer';
+import AppProvider from '../context/AppProvider';
+import { getRestaurants } from '../services/getRestaurants';
 
-export default function Home() {
+export default function Home({ restaurants }) {
   return (
-    <div >
+    <AppProvider data={restaurants}>
       <Header />
       <ListContainer />
-    </div>
+    </AppProvider>
   )
 }
+
+export const getStaticProps = async () => {
+  const request = await getRestaurants(1);
+  const restaurants = request;
+  return {
+    props: {
+      restaurants,
+    },
+    revalidate: 360
+  };
+};
