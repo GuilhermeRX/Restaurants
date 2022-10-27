@@ -3,22 +3,25 @@ import Header from '../components/header';
 import ListContainer from '../components/listContainer';
 import AppProvider from '../context/AppProvider';
 import { getRestaurants } from '../services/getRestaurants';
+import { PageHome } from '../styles/pageHome/style';
 
 export default function Home({ restaurants }) {
   return (
     <AppProvider data={restaurants}>
-      <Head>
-        <title>Restaurantes</title>
-        <meta name='description' content='Encontrar bares e restaurantes nunca foi tão fácil!' />
-        <meta property='og:title' content='Restaurantes' />
-        <meta
-          property='og:description'
-          content='Encontrar bares e restaurantes nunca foi tão fácil!'
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <Header />
-      <ListContainer />
+      <PageHome>
+        <Head>
+          <title>Restaurantes</title>
+          <meta name='description' content='Encontrar bares e restaurantes nunca foi tão fácil!' />
+          <meta property='og:title' content='Restaurantes' />
+          <meta
+            property='og:description'
+            content='Encontrar bares e restaurantes nunca foi tão fácil!'
+          />
+          <link rel='icon' href='/favicon.ico' />
+        </Head>
+        <Header />
+        <ListContainer />
+      </PageHome>
     </AppProvider>
   )
 }
