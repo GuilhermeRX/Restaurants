@@ -4,7 +4,13 @@ export const Card = styled.div`
   max-width: 100%;
   height: fit-content;
   cursor: pointer;
-  
+  background: none;
+  :hover {
+    img {
+      box-shadow: 4px 6px 12px rgba(0,0,0,0.4)
+    }
+  }
+
   p {
     margin-top: -26px;
     margin-left: 8px;
@@ -23,7 +29,8 @@ export const DivImg = styled.div`
   img {
     width: 100%;
     height: 160px;
-    border-radius: 12px;
-    filter: brightness(60%);    
+    border-radius: 16px;
+    filter: brightness(60%);
+    transition: 0.5s;
   }
 `;

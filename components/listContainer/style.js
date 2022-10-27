@@ -10,6 +10,11 @@ export const ListContainerStyle = styled.main`
   margin: auto;
   margin-bottom: 46px;
 
+  h1 {
+    align-self: flex-start;
+    margin-bottom: 36px;
+  }
+
   span {
     display: grid;
     grid-template-columns: 1fr 1fr;

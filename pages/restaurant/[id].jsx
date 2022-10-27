@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { IoIosArrowBack } from 'react-icons/io';
 import { getRestaurant } from "../../services/getRestaurant";
@@ -19,6 +20,16 @@ export default function PageRestaurant({ restaurant }) {
 
   return (
     <PageInternal>
+      <Head>
+        <title>{name}</title>
+        <meta name='description' content={description} />
+        <meta property='og:title' content={name} />
+        <meta
+          property='og:description'
+          content={description}
+        />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <HeaderInternal>
         <BtnBack onClick={() => router.push('/')}><IoIosArrowBack />Voltar</BtnBack>
         <span>

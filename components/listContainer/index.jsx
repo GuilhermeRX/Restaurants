@@ -82,7 +82,8 @@ export default function ListContainer() {
 
   return (
     <ListContainerStyle>
-      {goSearch && showSearchResult}
+      {goSearch ? showSearchResult : <h1>Restaurantes</h1>}
+
       {loading
         ? <Loading />
         : <span>
