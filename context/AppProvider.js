@@ -5,6 +5,7 @@ export default function AppProvider({ data = {}, children }) {
   const [restaurants, setRestaurants] = useState(data);
   const [goSearch, setGoSearch] = useState(false);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const contextValue = {
     restaurants,
@@ -13,6 +14,8 @@ export default function AppProvider({ data = {}, children }) {
     setGoSearch,
     setPage,
     page,
+    loading,
+    setLoading,
   }
 
   return (

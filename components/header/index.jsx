@@ -1,24 +1,30 @@
+/* eslint-disable @next/next/no-img-element */
 import { useContext, useState } from "react";
 import { BsSearch } from 'react-icons/bs';
 import AppContext from "../../context/AppContext";
 import { searchRestaurant } from "../../services/searchRestaurant";
+import { HeaderStyle, SvgContainer } from "./style";
 
 export default function Header() {
   const [search, setSearch] = useState('');
-  const { setRestaurants, setGoSearch, setPage } = useContext(AppContext);
+  const { setRestaurants, setGoSearch, setPage, setLoading } = useContext(AppContext);
 
   const getSearch = async () => {
+    setLoading(true);
     const response = await searchRestaurant(search, 1)
     setGoSearch(search);
+    setLoading(false);
     setRestaurants(response)
     setSearch('')
     setPage(1)
   }
 
   return (
-    <header>
+    <HeaderStyle>
       <label htmlFor="search">
-        <BsSearch onClick={() => getSearch()} />
+        <SvgContainer>
+          <BsSearch />
+        </SvgContainer>
         <input
           type='text'
           id='search'
@@ -27,6 +33,7 @@ export default function Header() {
           onChange={({ target }) => setSearch(target.value)}
         />
       </label>
-    </header>
+      <button onClick={() => getSearch()}>Buscar</button>
+    </HeaderStyle>
   )
 }
